@@ -92,4 +92,6 @@ app.on('ready', async () => {
   });
 
   mainWindow.setMenu(null)
+
+  mainWindow.setFullScreen(true)
 });
