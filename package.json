@@ -133,7 +133,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/adamplabarge/lastbrewtime",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
