@@ -23,7 +23,7 @@ export default class Home extends Component<Props> {
           <Timer color="blue" />
         </div>
         <div className={styles.row_footer}>
-          <p className={styles.author}>By - Adam LaBarge</p>
+          <p className={styles.author}>Developed By Adam LaBarge</p>
         </div>
       </div>
     );
