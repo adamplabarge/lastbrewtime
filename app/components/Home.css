@@ -22,13 +22,13 @@
 .row_footer {
   flex: 1;
   display: flex;
-  justify-content: left;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   padding: 3px 6px;
 }
 
 .author {
-  font-size: .75em;
+  font-size: 0.75em;
   color: grey;
   margin: 0;
 }
