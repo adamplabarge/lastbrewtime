@@ -61,7 +61,11 @@ class Timer extends React.Component {
     return(
       <div className={styles.timer}>
         <h3 className={styles.time}>{humanizeDuration(this.state.time, this.humanizeConfig())}</h3>
-        <button style={{backgroundColor: color}} className={styles.button} onClick={this.resetTimer}>reset</button>
+        <button
+          style={{backgroundColor: color}}
+          className={styles.button}
+          onClick={this.resetTimer}
+        ><i className="fas fa-redo-alt"></i></button>
       </div>
     )
   }

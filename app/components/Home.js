@@ -14,7 +14,7 @@ export default class Home extends Component<Props> {
     return (
       <div className={styles.container} data-tid="container">
         <div className={styles.row_header}>
-          Last Brew Time
+          Last Brew Time <i className="fas fa-coffee"></i>
         </div>
         <div className={styles.row}>
           <Timer color="red" />
@@ -23,7 +23,7 @@ export default class Home extends Component<Props> {
           <Timer color="blue" />
         </div>
         <div className={styles.row_footer}>
-          <p className={styles.author}>Developed By Adam LaBarge</p>
+          <p className={styles.author}><i class="fab fa-github"></i> https://github.com/adamplabarge/lastbrewtime</p>
         </div>
       </div>
     );

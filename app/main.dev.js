@@ -93,5 +93,5 @@ app.on('ready', async () => {
 
   mainWindow.setMenu(null)
 
-  mainWindow.setFullScreen(true)
+  mainWindow.setFullScreen(process.env.NODE_ENV !== 'development')
 });

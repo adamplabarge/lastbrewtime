@@ -15,11 +15,16 @@
   flex: 1;
   font-size: 1.5em;
   text-align: center;
+  padding-top: 5px;
+  font-weight: 700;
 }
 
 .row_footer {
   flex: 1;
-  text-align: center;
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  padding: 3px 6px;
 }
 
 .author {
