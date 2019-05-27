@@ -1,37 +1,16 @@
 // @flow
-import type { GetState, Dispatch } from '../reducers/types';
 
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const INCREMENT_COUNTER_A = 'INCREMENT_COUNTER_A';
+export const INCREMENT_COUNTER_B = 'INCREMENT_COUNTER_B';
 
-export function increment() {
+export function incrementA() {
   return {
-    type: INCREMENT_COUNTER
+    type: INCREMENT_COUNTER_A
   };
 }
 
-export function decrement() {
+export function incrementB() {
   return {
-    type: DECREMENT_COUNTER
-  };
-}
-
-export function incrementIfOdd() {
-  return (dispatch: Dispatch, getState: GetState) => {
-    const { counter } = getState();
-
-    if (counter % 2 === 0) {
-      return;
-    }
-
-    dispatch(increment());
-  };
-}
-
-export function incrementAsync(delay: number = 1000) {
-  return (dispatch: Dispatch) => {
-    setTimeout(() => {
-      dispatch(increment());
-    }, delay);
+    type: INCREMENT_COUNTER_B
   };
 }

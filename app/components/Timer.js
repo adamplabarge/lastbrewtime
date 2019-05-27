@@ -1,74 +1,100 @@
-import React from 'react'
-import humanizeDuration from 'humanize-duration'
+import React from 'react';
+import humanizeDuration from 'humanize-duration';
 import styles from './Timer.css';
 
-class Timer extends React.Component {
-  constructor(props){
-    super(props)
-  
+type Props = {
+  onIncrement: () => void,
+  color: string
+};
+
+class Timer extends React.Component<Props> {
+  props: Props;
+
+  constructor(props) {
+    super(props);
+
     this.state = {
       time: 0,
-      isOn: false,
       start: 0
-    }
+    };
   }
-  
+
   startTimer = () => {
+    const { time, start } = this.state;
+
     this.setState({
-      isOn: true,
-      time: this.state.time,
-      start: Date.now() - this.state.time
-    })
-    this.timer = setInterval(() => this.setState({
-      time: Date.now() - this.state.start
-    }), 1);
-  }
-  
+      time,
+      start: Date.now() - time
+    });
+
+    this.timer = setInterval(
+      () =>
+        this.setState({
+          time: Date.now() - start
+        }),
+      1
+    );
+  };
+
   resetTimer = () => {
-    this.setState({
-      time: 0,
-      isOn: false
-    }, () => {
-      this.startTimer()
-    })
-  }
-
-  humanizeConfig = () => {
-    return {
-      round: true,
-      spacer: '',
-      delimiter: ' ',
-      largest: 3,
-      units: ['d','h','m', 's'],
-      language: 'shortEn',
-      languages: {
-        shortEn: {
-          y: () => 'y',
-          mo: () => 'mo',
-          w: () => 'w',
-          d: () => 'd',
-          h: () => 'h',
-          m: () => 'm',
-          s: () => 's',
-          ms: () => 'ms',
-        }
+    this.setState(
+      {
+        time: 0
+      },
+      () => {
+        this.startTimer();
       }
-    }
-  }
+    );
+  };
 
-  render() {  
-    const { color } = this.props
-    return(
+  handleOnClick = () => {
+    const { onIncrement } = this.props;
+
+    onIncrement();
+    this.resetTimer();
+  };
+
+  render() {
+    const { color } = this.props;
+    const { time } = this.state;
+
+    return (
       <div className={styles.timer}>
-        <h3 className={styles.time}>{humanizeDuration(this.state.time, this.humanizeConfig())}</h3>
+        <h3 className={styles.time}>
+          {humanizeDuration(time, humanizeConfig)}
+        </h3>
         <button
-          style={{backgroundColor: color}}
+          type="button"
+          style={{ backgroundColor: color }}
           className={styles.button}
-          onClick={this.resetTimer}
-        ><i className="fas fa-redo-alt"></i></button>
+          onClick={this.handleOnClick}
+        >
+          <i className="fas fa-redo-alt" />
+        </button>
       </div>
-    )
+    );
   }
 }
 
-export default Timer
+const humanizeConfig = {
+  round: true,
+  spacer: '',
+  delimiter: ' ',
+  largest: 3,
+  units: ['d', 'h', 'm', 's'],
+  language: 'shortEn',
+  languages: {
+    shortEn: {
+      y: () => 'y',
+      mo: () => 'mo',
+      w: () => 'w',
+      d: () => 'd',
+      h: () => 'h',
+      m: () => 'm',
+      s: () => 's',
+      ms: () => 'ms'
+    }
+  }
+};
+
+export default Timer;

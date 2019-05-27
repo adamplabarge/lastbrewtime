@@ -95,7 +95,10 @@
       "category": "Development"
     },
     "deb": {
-      "fpm": ["--architecture", "armhf"]
+      "fpm": [
+        "--architecture",
+        "armhf"
+      ]
     },
     "directories": {
       "buildResources": "resources",

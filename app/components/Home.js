@@ -1,29 +1,35 @@
 // @flow
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import routes from '../constants/routes';
 import styles from './Home.css';
-import Timer from './Timer'
+import Timer from './Timer';
 
-type Props = {};
+type Props = {
+  incrementA: () => void,
+  incrementB: () => void
+};
 
 export default class Home extends Component<Props> {
   props: Props;
 
   render() {
+    const { incrementA, incrementB } = this.props;
+
     return (
       <div className={styles.container} data-tid="container">
         <div className={styles.row_header}>
-          Last Brew Time <i className="fas fa-coffee"></i>
+          <span>Last Brew Time</span> <i className="fas fa-coffee" />
         </div>
         <div className={styles.row}>
-          <Timer color="red" />
+          <Timer onIncrement={incrementA} color="red" />
         </div>
         <div className={styles.row}>
-          <Timer color="blue" />
+          <Timer onIncrement={incrementB} color="blue" />
         </div>
         <div className={styles.row_footer}>
-          <p className={styles.author}><i class="fab fa-github"></i> https://github.com/adamplabarge/lastbrewtime</p>
+          <p className={styles.author}>
+            <i className="fab fa-github" /> &nbsp;
+            <span>https://github.com/adamplabarge/lastbrewtime</span>
+          </p>
         </div>
       </div>
     );
