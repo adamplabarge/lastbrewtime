@@ -196,6 +196,7 @@
     "electron-builder": "^20.34.0",
     "electron-devtools-installer": "^2.2.4",
     "electron-packager": "^13.1.1",
+    "electron-rebuild": "^1.8.5",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.4",
@@ -265,7 +266,8 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "source-map-support": "^0.5.9"
+    "source-map-support": "^0.5.9",
+    "sqlite3": "^4.0.8"
   },
   "devEngines": {
     "node": ">=7.x",
