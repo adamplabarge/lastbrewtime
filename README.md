@@ -22,7 +22,10 @@
 	Encoding=UTF-8<br>
 	Name=Terminal autostart<br>
 	Comment=Start a terminal and list directory<br>
-	Exec=/usr/bin/lxterm -e 'nohup /usr/local/bin/lastbrewtime'<li>
+	Exec=/usr/bin/lxterm -e 'nohup /usr/local/bin/lastbrewtime'</li>
+	<li>Build for armhf (Raspberry Pi)<br>
+	from: https://github.com/electron-userland/electron-builder/issues/1230#issuecomment-491494976<br>
+	see package.json linux build that targets deb and armhf architechure</li>
 </div>
 
 ## License
