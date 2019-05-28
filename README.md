@@ -5,7 +5,7 @@
     <p>Electron, React, Redux, and target package to armhf arcitechure/Raspberry Pi with 480x320 touchscreen.</p>
     <hr>
     <h3>Notes:</h3>
-    <ul>
+    <ul align="left">
         <li>Installing .deb file:<br>
 	from: https://www.raspberrypi.org/forums/viewtopic.php?t=27915<br>
 	 $ sudo dpkg -i filename.deb</li>
