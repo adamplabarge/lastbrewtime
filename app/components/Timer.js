@@ -20,44 +20,31 @@ class Timer extends React.Component<Props> {
   }
 
   startTimer = () => {
-    const { time } = this.state;
-
-    this.setState(
-      {
-        time,
-        start: Date.now() - time
-      },
-      () => {
-        const { start } = this.state;
-
-        this.timer = setInterval(
-          () =>
-            this.setState({
-              time: Date.now() - start
-            }),
-          1
-        );
-      }
-    );
-  };
-
+    const { time } = this.state
+    this.setState({
+      time: time,
+      start: Date.now() - time
+    }, () => {
+      this.timer = setInterval(() => this.setState({
+        time: Date.now() - this.state.start
+      }), 1);
+    })
+  }
+  
   resetTimer = () => {
-    this.setState(
-      {
-        time: 0
-      },
-      () => {
-        this.startTimer();
-      }
-    );
-  };
+    this.setState({
+      time: 0,
+    }, () => {
+      this.startTimer()
+    })
+  }
 
   handleOnClick = () => {
     const { onIncrement } = this.props;
 
     onIncrement();
     this.resetTimer();
-  };
+  }
 
   render() {
     const { color } = this.props;
