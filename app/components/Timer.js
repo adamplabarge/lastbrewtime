@@ -22,7 +22,7 @@ class Timer extends React.Component<Props> {
   startTimer = () => {
     const { time } = this.state
     this.setState({
-      time: time,
+      time,
       start: Date.now() - time
     }, () => {
       this.timer = setInterval(() => this.setState({
